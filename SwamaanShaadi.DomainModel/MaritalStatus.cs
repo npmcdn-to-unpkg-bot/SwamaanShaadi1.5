@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace SwamaanShaadi.DomainModel
 {
-    public class Class1
+    public class MaritalStatus
     {
+        public int MaritalStatusId { get; set; }
+        public string Status { get; set; }
     }
 }
