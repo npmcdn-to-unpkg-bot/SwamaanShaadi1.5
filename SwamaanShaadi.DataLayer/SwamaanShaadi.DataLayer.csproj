@@ -50,6 +50,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Mapping\AccountStatusMap.cs" />
+    <Compile Include="Mapping\AlertSettingMap.cs" />
+    <Compile Include="Mapping\CasteMap.cs" />
+    <Compile Include="Mapping\DistrictMap.cs" />
+    <Compile Include="Mapping\EducationMap.cs" />
+    <Compile Include="Mapping\EmploymentTypeMap.cs" />
+    <Compile Include="Mapping\GenderMap.cs" />
+    <Compile Include="Mapping\MaritalStatusMap.cs" />
+    <Compile Include="Mapping\MatchHistoryMap.cs" />
+    <Compile Include="Mapping\MemberMap.cs" />
+    <Compile Include="Mapping\MemberPhotographMap.cs" />
+    <Compile Include="Mapping\ProfileForMap.cs" />
+    <Compile Include="Mapping\ReligionMap.cs" />
+    <Compile Include="Mapping\StateMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contexts\MembersContext.cs" />
     <Compile Include="Interfaces\IMemberRepository.cs" />
