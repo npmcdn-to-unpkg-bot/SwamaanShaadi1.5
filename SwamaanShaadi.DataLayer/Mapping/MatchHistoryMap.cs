@@ -27,7 +27,7 @@ namespace SwamaanShaadi.DataLayer
 
             // Relationships
             this.HasRequired(t => t.Member)
-                .WithMany(t => t.MatchHistories)
+                .WithMany(t => t.MatchHistory)
                 .HasForeignKey(d => d.MemberID);
             
         }

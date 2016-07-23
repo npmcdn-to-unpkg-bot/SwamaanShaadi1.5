@@ -10,7 +10,7 @@ namespace SwamaanShaadi.DomainClasses
     {
         public Member()
         {
-            MatchHistories = new List<MatchHistory>();
+            MatchHistory = new List<MatchHistory>();
             MemberPhotographs = new List<MemberPhotograph>();
         }
 
@@ -58,7 +58,7 @@ namespace SwamaanShaadi.DomainClasses
         public virtual Religion Religion { get; set; }
         public virtual HomeState HomeState { get; set; }
 
-        public virtual List<MatchHistory> MatchHistories { get; set; }
+        public virtual List<MatchHistory> MatchHistory { get; set; }
         public virtual List<MemberPhotograph> MemberPhotographs { get; set; }
     
     }
