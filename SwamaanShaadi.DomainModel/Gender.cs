@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SwamaanShaadi.DomainModel
+namespace SwamaanShaadi.DomainClasses
 {
     public class Gender
     {

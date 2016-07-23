@@ -1,4 +1,4 @@
-﻿namespace SwamaanShaadi.DomainModel
+﻿namespace SwamaanShaadi.DomainClasses
 {
     public class Caste
     {

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SwamaanShaadi.DomainClasses")]
+[assembly: AssemblyTitle("SwamaanShaadi.DataLayer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SwamaanShaadi.DomainClasses")]
+[assembly: AssemblyProduct("SwamaanShaadi.DataLayer")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f451fb39-ad82-4454-8b7d-5ecbd0f0fcdb")]
+[assembly: Guid("6a77cb9c-00c4-4519-9844-d6ddac774063")]
 
 // Version information for an assembly consists of the following four values:
 //

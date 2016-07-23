@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SwamaanShaadi.DomainModel
+namespace SwamaanShaadi.DomainClasses
 {
     public class Religion
     {
