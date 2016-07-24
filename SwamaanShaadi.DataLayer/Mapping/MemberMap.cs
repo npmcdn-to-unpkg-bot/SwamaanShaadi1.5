@@ -97,6 +97,29 @@ namespace SwamaanShaadi.DataLayer
             this.HasOptional(t => t.HomeState);
             this.HasOptional(t => t.District);
 
+            //One to many
+            this.HasMany(t => t.MemberPhotographs)
+                .WithRequired(t => t.Member)
+                .HasForeignKey(t => t.MemberId);
+
+
+            this.HasMany(t => t.PartnerDistricts)
+                .WithRequired(t => t.Member)
+                .HasForeignKey(t => t.MemberId);
+
+            this.HasMany(t => t.PartnerCastes)
+                .WithRequired(t => t.Member)
+                .HasForeignKey(t => t.MemberId);
+
+            this.HasMany(t => t.PartnerEducations)
+                .WithRequired(t => t.Member)
+                .HasForeignKey(t => t.MemberId);
+
+
+            this.HasMany(t => t.PartnerMaritalStatuses)
+                .WithRequired(t => t.Member)
+                .HasForeignKey(t => t.MemberId);
+
 
             this.Ignore(t => t.State);
         }

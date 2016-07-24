@@ -40,6 +40,10 @@ namespace SwamaanShaadi.DataLayer
             modelBuilder.Configurations.Add(new MaritalStatusMap());
             modelBuilder.Configurations.Add(new ProfileForMap());
             modelBuilder.Configurations.Add(new MemberPhotographMap());
+            modelBuilder.Configurations.Add(new PartnerDistrictMap());
+            modelBuilder.Configurations.Add(new PartnerCasteMap());
+            modelBuilder.Configurations.Add(new PartnerEducationMap());
+            modelBuilder.Configurations.Add(new PartnerMaritalStatusMap());
         }
 
     }

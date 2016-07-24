@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SwamaanShaadi.DataLayer.Mapping
+namespace SwamaanShaadi.DataLayer
 {
     public class PartnerMaritalStatusMap : EntityTypeConfiguration<PartnerMaritalStatus>
     {

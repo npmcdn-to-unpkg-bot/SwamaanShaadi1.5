@@ -41,7 +41,12 @@ namespace SwamaanShaadi.DataLayer.Tests
                         MobileNumber = 9802293243,
                         UserName = "9802293243",
                         ClientIPAddress = "1.2.3.4",
-                        DistrictId = 2,
+                        DistrictId = 1,
+                        PartnerDistricts = new List<PartnerDistrict>
+                        {
+                            new PartnerDistrict { DistrictId = 1 },
+                            new PartnerDistrict { DistrictId = 2 }
+                        },
                         State = State.Added
                     };
 
@@ -49,18 +54,42 @@ namespace SwamaanShaadi.DataLayer.Tests
                     uow.Save();
                 }
             }
-            using (var repo = new MemberRepository(new UnitOfWorkForMembers()))
-            {
-                var member = repo.All.Where(m => m.FirstName == "Navendu " + number).ToList();
-                Assert.AreEqual(member.Count, 1);
-            }
+            //using (var repo = new MemberRepository(new UnitOfWorkForMembers()))
+            //{
+            //    var member = repo.All.Where(m => m.FirstName == "Navendu " + number).ToList();
+            //    Assert.AreEqual(member.Count, 1);
+            //}
+            //using (var uow = new UnitOfWorkForMembers())
+            //{
+            //    uow.Context.Database.Log = Console.WriteLine;
+            //    using (var repo = new MemberRepository(uow))
+            //    {
+            //        var member = repo.All.Where(m => m.FirstName == "Navendu " + number).FirstOrDefault();
+            //        repo.Delete(member.MemberId);
+            //        uow.Save();
+            //    }
+            //}
+        }
+
+        [TestMethod()]
+        public void UpdateMemberDistrict()
+        {
             using (var uow = new UnitOfWorkForMembers())
             {
                 uow.Context.Database.Log = Console.WriteLine;
                 using (var repo = new MemberRepository(uow))
                 {
-                    var member = repo.All.Where(m => m.FirstName == "Navendu " + number).FirstOrDefault();
-                    repo.Delete(member.MemberId);
+                    var member = repo.AllIncluding(t => t.PartnerDistricts).SingleOrDefault(t=>t.MemberId == 7);
+
+                    if (member.PartnerDistricts.Any())
+                    {
+                        member.PartnerDistricts.AddRange(
+                            new List<PartnerDistrict> {
+                                new PartnerDistrict { DistrictId = 3 }
+                            }
+                            ); 
+                    }
+                    
                     uow.Save();
                 }
             }
