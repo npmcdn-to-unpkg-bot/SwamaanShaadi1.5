@@ -47,13 +47,14 @@ namespace SwamaanShaadi.DataLayer
             if (member.MemberId == default(int))
             {
                 //New entity
-                context.Entry(member).State = EntityState.Added;
+                context.SetAdd(member);
+                //context.Entry(member).State = EntityState.Added;
             }
             else
             {
-                //context.ApplyStateChanges();
+                context.SetModified(member);
                 //Existing entity
-                context.Entry(member).State = EntityState.Modified;
+                //context.Entry(member).State = EntityState.Modified;
             }
         }
 

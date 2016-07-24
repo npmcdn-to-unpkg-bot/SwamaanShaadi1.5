@@ -1,5 +1,6 @@
 ﻿using SwamaanShaadi.DomainClasses;
 using System.Data.Entity;
+using System;
 
 namespace SwamaanShaadi.DataLayer
 {
@@ -46,5 +47,14 @@ namespace SwamaanShaadi.DataLayer
             modelBuilder.Configurations.Add(new PartnerMaritalStatusMap());
         }
 
+        public void SetModified(object entity)
+        {
+            Entry(entity).State = EntityState.Modified;
+        }
+
+        public void SetAdd(object entity)
+        {
+            Entry(entity).State = EntityState.Added;
+        }
     }
 }

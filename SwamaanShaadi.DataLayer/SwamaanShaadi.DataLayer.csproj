@@ -55,6 +55,7 @@
     <Compile Include="Helper\StateHelper.cs" />
     <Compile Include="Interfaces\IEntityRepository.cs" />
     <Compile Include="Interfaces\ILookupRepository.cs" />
+    <Compile Include="Interfaces\IMembersContext.cs" />
     <Compile Include="Mapping\AccountStatusMap.cs" />
     <Compile Include="Mapping\AlertSettingMap.cs" />
     <Compile Include="Mapping\CasteMap.cs" />
