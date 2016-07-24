@@ -26,6 +26,8 @@ namespace SwamaanShaadi.DataLayer
             this.ToTable("Gender");
             this.Property(t => t.GenderId).HasColumnName("GenderId");
             this.Property(t => t.Name).HasColumnName("Name");
+
+            this.Ignore(t => t.State);
         }
     }
 }

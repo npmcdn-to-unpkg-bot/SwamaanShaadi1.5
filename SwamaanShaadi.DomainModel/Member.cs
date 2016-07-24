@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SwamaanShaadi.DomainClasses
 {
-    public class Member
+    public class Member : IObjectWithState
     {
         public Member()
         {
@@ -40,7 +40,7 @@ namespace SwamaanShaadi.DomainClasses
         public int? MobileAlertActive { get; set; }
         public int? EmailAlertActive { get; set; }
         public int? AccountStatusId { get; set; }
-        public DateTime RegistrationDate { get; set; }
+        public DateTime? RegistrationDate { get; set; }
         public bool? IsVerified { get; set; }
         public string VerifiedBy { get; set; }
         public DateTime? VerifiedOn { get; set; }
@@ -60,6 +60,7 @@ namespace SwamaanShaadi.DomainClasses
 
         public virtual List<MatchHistory> MatchHistory { get; set; }
         public virtual List<MemberPhotograph> MemberPhotographs { get; set; }
-    
+
+        public State State { get; set; }
     }
 }

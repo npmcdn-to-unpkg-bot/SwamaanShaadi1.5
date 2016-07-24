@@ -29,7 +29,9 @@ namespace SwamaanShaadi.DataLayer
             this.HasRequired(t => t.Member)
                 .WithMany(t => t.MatchHistory)
                 .HasForeignKey(d => d.MemberID);
-            
+
+            this.Ignore(t => t.State);
+
         }
     }
 }

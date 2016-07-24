@@ -7,7 +7,8 @@ namespace SwamaanShaadi.DataLayer
     {
         public MembersContext() : base("name=TestDb")
         {
-            Database.SetInitializer(new MemberDbInitializer());
+            //Database.SetInitializer(new MemberDbInitializer());
+            Database.SetInitializer<MembersContext>(null);
         }
 
         public DbSet<Member> Members { get; set; }

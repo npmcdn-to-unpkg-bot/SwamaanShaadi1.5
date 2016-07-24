@@ -37,12 +37,24 @@ namespace SwamaanShaadi.DataLayer
         }
 
 
+        /// <summary>
+        /// For Member update alongwith related objects.
+        /// When we do Add on root object, EF will mark all netsted objects as Add as well.
+        /// Thus SaveChanges will INSERT complete object tree.
+        /// </summary>
+        /// <param name="member"></param>
+        public void InsertGraph(Member member)
+        {
+            context.Members.Add(member);
+        }
+
+        //For Member only update, no update to related objects
         public void InsertOrUpdate(Member member)
         {
             if (member.MemberId == default(int))
             {
                 //New entity
-                context.Members.Add(member);
+                context.Entry(member).State = EntityState.Added;
             }
             else
             {

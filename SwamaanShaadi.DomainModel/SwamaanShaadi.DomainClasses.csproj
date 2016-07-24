@@ -7,8 +7,8 @@
     <ProjectGuid>{F451FB39-AD82-4454-8B7D-5ECBD0F0FCDB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwamaanShaadi.DomainModel</RootNamespace>
-    <AssemblyName>SwamaanShaadi.DomainModel</AssemblyName>
+    <RootNamespace>SwamaanShaadi.DomainClasses</RootNamespace>
+    <AssemblyName>SwamaanShaadi.DomainClasses</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,6 +48,7 @@
     <Compile Include="EmploymentType.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="HomeState.cs" />
+    <Compile Include="IObjectWithState.cs" />
     <Compile Include="MaritalStatus.cs" />
     <Compile Include="MatchHistory.cs" />
     <Compile Include="Member.cs" />

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace SwamaanShaadi.DomainClasses
 {
-    public class EmploymentType
+    public class EmploymentType : IObjectWithState
     {
         public int EmploymentTypeId { get; set; }
         public string Type { get; set; }
+
+        public State State { get; set; }
     }
 }

@@ -27,6 +27,8 @@ namespace SwamaanShaadi.DataLayer
             this.ToTable("AccountStatus");
             this.Property(t => t.AccountStatusId).HasColumnName("AccountStatusId").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             this.Property(t => t.Status).HasColumnName("Status");
+
+            this.Ignore(t => t.State);
         }
     }
 }

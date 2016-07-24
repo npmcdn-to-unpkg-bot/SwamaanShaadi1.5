@@ -25,6 +25,8 @@ namespace SwamaanShaadi.DataLayer
             this.ToTable("MaritalStatus");
             this.Property(t => t.MaritalStatusId).HasColumnName("MaritalStatusId");
             this.Property(t => t.Status).HasColumnName("Status");
+
+            this.Ignore(t => t.State);
         }
     }
 }

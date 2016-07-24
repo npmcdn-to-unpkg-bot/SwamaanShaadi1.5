@@ -32,6 +32,8 @@ namespace SwamaanShaadi.DataLayer
                 .WithMany(t => t.Castes)
                 .HasForeignKey(d => d.ReligionId);
 
+            this.Ignore(t => t.State);
+
         }
     }
 }

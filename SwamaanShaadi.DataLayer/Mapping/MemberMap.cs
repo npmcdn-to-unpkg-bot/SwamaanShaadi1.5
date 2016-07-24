@@ -14,7 +14,7 @@ namespace SwamaanShaadi.DataLayer
         {
             // Primary Key
             this.HasKey(t => t.MemberId);
-
+            
             // Properties
             this.Property(t => t.UserName)
                 .HasMaxLength(100);
@@ -96,6 +96,9 @@ namespace SwamaanShaadi.DataLayer
             this.HasOptional(t => t.Caste);
             this.HasOptional(t => t.HomeState);
             this.HasOptional(t => t.District);
+
+
+            this.Ignore(t => t.State);
         }
     }
 }

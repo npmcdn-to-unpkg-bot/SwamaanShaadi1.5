@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace SwamaanShaadi.DomainClasses
 {
-    public class Gender : IObjectWithState
+    public interface IObjectWithState
     {
-        public int GenderId { get; set; }
-        public string Name { get; set; }
+        State State { get; set; }
+    }
 
-        public State State { get; set; }
+    public enum State
+    {
+        Added,
+        Unchanged,
+        Modified,
+        Deleted
     }
 }

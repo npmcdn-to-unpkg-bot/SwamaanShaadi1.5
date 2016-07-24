@@ -25,6 +25,8 @@ namespace SwamaanShaadi.DataLayer
             this.ToTable("ProfileFor");
             this.Property(t => t.ProfileForId).HasColumnName("ProfileForId");
             this.Property(t => t.Relation).HasColumnName("Relation");
+
+            this.Ignore(t => t.State);
         }
     }
 }

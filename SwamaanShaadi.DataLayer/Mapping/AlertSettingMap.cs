@@ -27,6 +27,8 @@ namespace SwamaanShaadi.DataLayer
             this.ToTable("AlertSettings");
             this.Property(t => t.NoOfMatchesToSendInEachRun).HasColumnName("NoOfMatchesToSendInEachRun");
             this.Property(t => t.SMSStatusCheckWaitTime).HasColumnName("SMSStatusCheckWaitTime");
+
+            this.Ignore(t => t.State);
         }
     }
 }

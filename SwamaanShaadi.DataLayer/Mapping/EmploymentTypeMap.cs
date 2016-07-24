@@ -25,6 +25,8 @@ namespace SwamaanShaadi.DataLayer
             this.ToTable("EmploymentType");
             this.Property(t => t.EmploymentTypeId).HasColumnName("EmploymentTypeId");
             this.Property(t => t.Type).HasColumnName("Type");
+
+            this.Ignore(t => t.State);
         }
     }
 }

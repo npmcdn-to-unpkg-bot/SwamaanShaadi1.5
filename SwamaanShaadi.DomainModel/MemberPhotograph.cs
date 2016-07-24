@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SwamaanShaadi.DomainClasses
 {
-    public class MemberPhotograph
+    public class MemberPhotograph : IObjectWithState
     {
         public int MemberPhotographId { get; set; }
         public int MemberId { get; set; }
@@ -15,5 +15,6 @@ namespace SwamaanShaadi.DomainClasses
 
         public Member Member { get; set; }
 
+        public State State { get; set; }
     }
 }

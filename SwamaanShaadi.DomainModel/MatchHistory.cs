@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SwamaanShaadi.DomainClasses
 {
-    public class MatchHistory
+    public class MatchHistory : IObjectWithState
     {
         public int MatchHistoryId { get; set; }
         public int MemberID { get; set; }
@@ -16,5 +16,7 @@ namespace SwamaanShaadi.DomainClasses
         public DateTime MatchedBySystemOn { get; set; }
 
         public virtual Member Member { get; set; }
+
+        public State State { get; set; }
     }
 }

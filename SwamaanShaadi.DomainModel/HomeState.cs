@@ -2,7 +2,7 @@
 
 namespace SwamaanShaadi.DomainClasses
 {
-    public class HomeState
+    public class HomeState : IObjectWithState
     {
         public HomeState()
         {
@@ -12,5 +12,7 @@ namespace SwamaanShaadi.DomainClasses
         public int HomeStateId { get; set; }
         public string StateName { get; set; }
         public virtual IList<District> Districts { get; set; }
+
+        public State State { get; set; }
     }
 }

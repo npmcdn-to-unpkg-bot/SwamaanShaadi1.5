@@ -25,6 +25,8 @@ namespace SwamaanShaadi.DataLayer
             Property(c => c.MemberId).HasColumnName("MemberId").IsRequired();
             Property(c => c.IsProfilePhoto).HasColumnName("IsProfilePhoto");
             Property(c => c.PhotographPath).HasColumnName("PhotographPath");
+
+            this.Ignore(t => t.State);
         }
     }
 }

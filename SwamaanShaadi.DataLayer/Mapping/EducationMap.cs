@@ -25,6 +25,8 @@ namespace SwamaanShaadi.DataLayer
             this.ToTable("Education");
             this.Property(t => t.EducationId).HasColumnName("EducationId");
             this.Property(t => t.Degree).HasColumnName("Degree");
+
+            this.Ignore(t => t.State);
         }
     }
 }

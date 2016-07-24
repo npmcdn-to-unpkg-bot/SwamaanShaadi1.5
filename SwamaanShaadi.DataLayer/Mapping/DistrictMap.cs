@@ -33,6 +33,8 @@ namespace SwamaanShaadi.DataLayer
                 .WithMany(t => t.Districts)
                 .HasForeignKey(d => d.HomeStateId);
 
+            this.Ignore(t => t.State);
+
         }
     }
 }

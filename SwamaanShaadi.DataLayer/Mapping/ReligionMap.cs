@@ -25,6 +25,8 @@ namespace SwamaanShaadi.DataLayer
             this.ToTable("Religions");
             this.Property(t => t.ReligionId).HasColumnName("ReligionId");
             this.Property(t => t.ReligionName).HasColumnName("ReligionName");
+
+            this.Ignore(t => t.State);
         }
     }
 }
