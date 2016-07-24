@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Contexts\LookupContext.cs" />
     <Compile Include="Contexts\MemberDbInitializer.cs" />
+    <Compile Include="Helper\ContextHelper.cs" />
     <Compile Include="Helper\StateHelper.cs" />
     <Compile Include="Interfaces\IEntityRepository.cs" />
     <Compile Include="Interfaces\ILookupRepository.cs" />

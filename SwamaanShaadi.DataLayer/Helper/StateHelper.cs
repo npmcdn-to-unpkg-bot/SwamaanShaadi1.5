@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SwamaanShaadi.DataLayer.Helper
+namespace SwamaanShaadi.DataLayer
 {
     public class StateHelper
     {
