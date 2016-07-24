@@ -54,21 +54,6 @@ namespace SwamaanShaadi.DataLayer.Tests
                     uow.Save();
                 }
             }
-            //using (var repo = new MemberRepository(new UnitOfWorkForMembers()))
-            //{
-            //    var member = repo.All.Where(m => m.FirstName == "Navendu " + number).ToList();
-            //    Assert.AreEqual(member.Count, 1);
-            //}
-            //using (var uow = new UnitOfWorkForMembers())
-            //{
-            //    uow.Context.Database.Log = Console.WriteLine;
-            //    using (var repo = new MemberRepository(uow))
-            //    {
-            //        var member = repo.All.Where(m => m.FirstName == "Navendu " + number).FirstOrDefault();
-            //        repo.Delete(member.MemberId);
-            //        uow.Save();
-            //    }
-            //}
         }
 
         [TestMethod()]
