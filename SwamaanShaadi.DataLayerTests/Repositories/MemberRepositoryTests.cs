@@ -15,7 +15,7 @@ namespace SwamaanShaadi.DataLayer.Tests
         [TestMethod()]
         public void FindMemberTest()
         {
-            using (var repo = new MemberRepository())
+            using (var repo = new MemberRepository(new UnitOfWorkForMembers()))
             {
                 foreach (var member in repo.AllIncluding(m=>m.AccountStatus).ToList())
                 {
@@ -29,36 +29,40 @@ namespace SwamaanShaadi.DataLayer.Tests
         {
             Random r = new Random();
             var number = r.Next(1, 100000);
-
-            using (var repo = new MemberRepository())
+            using (var uow = new UnitOfWorkForMembers())
             {
-                //var district = repo.All.Where(d => d.District.DistrictName == "Madhubani").FirstOrDefault();
+                uow.Context.Database.Log = Console.WriteLine;
+                using (var repo = new MemberRepository(uow))
+                {
+                    Member member = new Member
+                    {
+                        FirstName = "Navendu " + number,
+                        LastName = "Kumar",
+                        MobileNumber = 9802293243,
+                        UserName = "9802293243",
+                        ClientIPAddress = "1.2.3.4",
+                        DistrictId = 2,
+                        State = State.Added
+                    };
 
-                Member member = new Member {
-                    FirstName = "Navendu " + number,
-                    LastName = "Kumar",
-                    MobileNumber = 9802293243,
-                    UserName = "9802293243",
-                    ClientIPAddress = "1.2.3.4",
-                    DistrictId = 2,
-                    State = State.Added
-                };
-
-                repo.InsertOrUpdate(member);
-                repo.Save();
+                    repo.InsertOrUpdate(member);
+                    uow.Save();
+                }
             }
-
-            using (var repo = new MemberRepository())
+            using (var repo = new MemberRepository(new UnitOfWorkForMembers()))
             {
                 var member = repo.All.Where(m => m.FirstName == "Navendu " + number).ToList();
                 Assert.AreEqual(member.Count, 1);
             }
-
-            using (var repo = new MemberRepository())
+            using (var uow = new UnitOfWorkForMembers())
             {
-                var member = repo.All.Where(m => m.FirstName == "Navendu " + number).FirstOrDefault();
-                repo.Delete(member.MemberId);
-                repo.Save();
+                uow.Context.Database.Log = Console.WriteLine;
+                using (var repo = new MemberRepository(uow))
+                {
+                    var member = repo.All.Where(m => m.FirstName == "Navendu " + number).FirstOrDefault();
+                    repo.Delete(member.MemberId);
+                    uow.Save();
+                }
             }
         }
     }

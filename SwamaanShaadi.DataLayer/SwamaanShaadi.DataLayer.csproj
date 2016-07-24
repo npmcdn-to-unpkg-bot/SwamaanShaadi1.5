@@ -66,6 +66,10 @@
     <Compile Include="Mapping\MatchHistoryMap.cs" />
     <Compile Include="Mapping\MemberMap.cs" />
     <Compile Include="Mapping\MemberPhotographMap.cs" />
+    <Compile Include="Mapping\PartnerCasteMap.cs" />
+    <Compile Include="Mapping\PartnerDistrictMap.cs" />
+    <Compile Include="Mapping\PartnerEducationMap.cs" />
+    <Compile Include="Mapping\PartnerMaritalStatusMap.cs" />
     <Compile Include="Mapping\ProfileForMap.cs" />
     <Compile Include="Mapping\ReligionMap.cs" />
     <Compile Include="Mapping\StateMap.cs" />
@@ -74,6 +78,7 @@
     <Compile Include="Interfaces\IMemberRepository.cs" />
     <Compile Include="Repositories\LookupRepository.cs" />
     <Compile Include="Repositories\MemberRepository.cs" />
+    <Compile Include="Repositories\UnitOfWorkForMembers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -11,7 +11,12 @@ namespace SwamaanShaadi.DataLayer
 {
     public class MemberRepository : IMemberRepository
     {
-        MembersContext context = new MembersContext();
+        //MembersContext context = new MembersContext();
+        private MembersContext context;
+        public MemberRepository(UnitOfWorkForMembers uow)
+        {
+            context = uow.Context;
+        }
 
         public IQueryable<Member> All
         {
@@ -36,18 +41,6 @@ namespace SwamaanShaadi.DataLayer
             return context.Members.Find(id);
         }
 
-
-        /// <summary>
-        /// For Member update alongwith related objects.
-        /// When we do Add on root object, EF will mark all netsted objects as Add as well.
-        /// Thus SaveChanges will INSERT complete object tree.
-        /// </summary>
-        /// <param name="member"></param>
-        public void InsertGraph(Member member)
-        {
-            context.Members.Add(member);
-        }
-
         //For Member only update, no update to related objects
         public void InsertOrUpdate(Member member)
         {
@@ -58,6 +51,7 @@ namespace SwamaanShaadi.DataLayer
             }
             else
             {
+                //context.ApplyStateChanges();
                 //Existing entity
                 context.Entry(member).State = EntityState.Modified;
             }
@@ -69,10 +63,10 @@ namespace SwamaanShaadi.DataLayer
             context.Members.Remove(member);
         }
 
-        public void Save()
-        {
-            context.SaveChanges();
-        }
+        //public void Save()
+        //{
+        //    context.SaveChanges();
+        //}
 
         public void Dispose()
         {

@@ -12,6 +12,10 @@ namespace SwamaanShaadi.DomainClasses
         {
             MatchHistory = new List<MatchHistory>();
             MemberPhotographs = new List<MemberPhotograph>();
+            PartnerDistricts = new List<PartnerDistrict>();
+            PartnerCastes = new List<PartnerCaste>();
+            PartnerEducations = new List<PartnerEducation>();
+            PartnerMaritalStatuses = new List<PartnerMaritalStatus>();
         }
 
         public int MemberId { get; set; }
@@ -35,8 +39,15 @@ namespace SwamaanShaadi.DomainClasses
         public int? EmploymentTypeId { get; set; }
         public string CompanyName { get; set; }
         public string WorkLocationAddress { get; set; }
+
+        //Search criteria
         public int? PartnerMinAge { get; set; }
         public int? PartnerMaxAge { get; set; }
+        public List<PartnerDistrict> PartnerDistricts { get; set; }
+        public List<PartnerCaste> PartnerCastes { get; set; }
+        public List<PartnerEducation> PartnerEducations { get; set; }
+        public List<PartnerMaritalStatus> PartnerMaritalStatuses { get; set; }
+
         public int? MobileAlertActive { get; set; }
         public int? EmailAlertActive { get; set; }
         public int? AccountStatusId { get; set; }
@@ -59,7 +70,7 @@ namespace SwamaanShaadi.DomainClasses
         public virtual HomeState HomeState { get; set; }
 
         public virtual List<MatchHistory> MatchHistory { get; set; }
-        public virtual List<MemberPhotograph> MemberPhotographs { get; set; }
+        public virtual List<MemberPhotograph> MemberPhotographs { get; set; }        
 
         public State State { get; set; }
     }

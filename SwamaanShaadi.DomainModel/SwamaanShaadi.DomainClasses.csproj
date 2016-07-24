@@ -53,6 +53,10 @@
     <Compile Include="MatchHistory.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="MemberPhotograph.cs" />
+    <Compile Include="PartnerCaste.cs" />
+    <Compile Include="PartnerDistrict.cs" />
+    <Compile Include="PartnerEducation.cs" />
+    <Compile Include="PartnerMaritalStatus.cs" />
     <Compile Include="ProfileFor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Religion.cs" />

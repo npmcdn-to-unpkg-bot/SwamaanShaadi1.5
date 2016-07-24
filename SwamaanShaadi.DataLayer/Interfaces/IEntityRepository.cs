@@ -11,6 +11,6 @@ namespace SwamaanShaadi.DataLayer
         T Find(int id);
         void InsertOrUpdate(T entity);
         void Delete(int id);
-        void Save();
+        //void Save();
     }
 }
