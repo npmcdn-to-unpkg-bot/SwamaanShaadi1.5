@@ -8,7 +8,17 @@
   },
   "author": "navendu kumar",
   "license": "ISC",
-  "dependencies": {
-
+  "dependencies": {},
+  "devDependencies": {
+    "connect": "^3.4.1",
+    "connect-livereload": "^0.5.4",
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-size": "^2.1.0",
+    "jshint-stylish": "^2.2.0",
+    "opn": "^4.0.2"
   }
 }

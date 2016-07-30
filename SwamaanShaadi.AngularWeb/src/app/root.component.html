@@ -1,0 +1,25 @@
+﻿<nav class="navbar navbar-default navbar-inverse container-fluid navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" ng-link="['MemberProfile']">Swamaan Shaadi</a>
+        </div>
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a ng-link="['MemberProfile']">Member Profile</a>
+            </li>
+            <li>
+                <a ng-link="['MatchHistory']">Match History</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <ng-outlet></ng-outlet>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" style="min-height:0">
+    <footer class="container-fluid bg-4 text-center">
+        <p>&copy; 2016 - Swamaan Shaadi V 1.5</p>
+    </footer>
+</nav>
