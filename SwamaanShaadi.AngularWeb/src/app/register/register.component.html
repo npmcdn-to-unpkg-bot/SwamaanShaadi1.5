@@ -15,29 +15,45 @@
                                    required
                                    ng-pattern="/^[0-9]+$/">
                         </div>
+                        <div class="alert alert-danger" ng-show="registerForm.phone.$invalid">
+                            Invalid mobile number entered.
+                        </div>
                         <div class="form-group" ng-class="{'has-error':registerForm.pwd.$invalid}">
-                            <label class="control-label" for="pwd" data-toggle="tooltip" data-placement="bottom" title="Passwords must have at least one non letter or digit character AND one lowercase AND one uppercase.">Password:</label>
+                            <label class="control-label" for="pwd" data-toggle="tooltip" data-placement="bottom" title="Password must be 6 to 15 characters long.">Password:</label>
                             <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" ng-model="vm.userData.password"
                                    ng-minlength="6"
                                    ng-maxlength="15"
                                    required
-                                   ng-pattern="/^(?=.*\d)(?=.*[A-Z])(?!.*[^a-zA-Z0-9@#*&%$^+])(.{6,15})$/">
+                                   ng-pattern="/^(?!.*[^a-zA-Z0-9^+])(.{6,15})$/">
                         </div>
-                        <p class="bg-warning">
-                            <span ng-show="registerForm.pwd.$invalid">
-                                <small>Passwords must be a combination of Lower case AND Uppercase AND digit AND special character. Between 6 to 15 characters. (Example: Abc#defg5)</small>
-                            </span>
-                        </p>
+
+                        <div class="alert alert-danger" ng-show="registerForm.pwd.$invalid">
+                            Your password must be 6 to 15 characters long.
+                        </div>
+
                         <div class="form-group">
                             <label for="pwd">Confirm Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" ng-model="vm.userData.confirmPassword">
+                            <input type="password" class="form-control" id="confirmPwd" placeholder="Enter password" ng-model="vm.userData.confirmPassword">
                         </div>
-                        <div class="form-group alert alert-danger">
-                            <input type="checkbox" ng-model="checked">&nbsp;&nbsp;<strong>I promise I will not give or take or participate in the act of dowry in any way.</strong> I also agree to the <a href="#" data-toggle="modal" data-target="#termsOfUse">Terms of using</a> this website.
+
+                        <div class="alert alert-danger" ng-show="vm.userData.confirmPassword != vm.userData.password">
+                            Password mismatch.
+                        </div>
+
+                        <div class="alert alert-success">
+                            <input type="checkbox" ng-model="checked1">&nbsp;&nbsp;<strong>
+                                I promise not to give or take or participate in the act of dowry in any way.
+                                </strong>
+                        </div>
+
+                        <div class="alert alert-success">
+                            <input type="checkbox" ng-model="checked2">&nbsp;&nbsp;<strong>
+                                I confirm that I have read the terms and conditions of using this website and agree to them.
+                            </strong>
                         </div>
                     </div>
                     <div class="panel-footer text-center">
-                        <button type="submit" ng-model="button" ng-disabled="!(checked && !registerForm.$invalid)" class="btn btn-primary" ng-click="vm.registerUser()">
+                        <button type="submit" ng-model="button" ng-disabled="!(checked1 && checked2 && !registerForm.$invalid)" class="btn btn-primary" ng-click="vm.registerUser()">
                             <span data-ng-hide="vm.loading">
                                 Register
                             </span>
