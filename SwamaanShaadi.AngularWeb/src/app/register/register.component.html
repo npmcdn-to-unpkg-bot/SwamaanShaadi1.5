@@ -1,1 +1,56 @@
-﻿Register
+﻿<form name="registerForm" novalidate class="register-form">
+    <div class="row">
+        <aside class="col-sm-4"></aside>
+        <section class="col-sm-4">
+            <section>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Register</div>
+                    <div class="panel-body">
+                        <div class="form-group" ng-class="{'has-error':registerForm.phone.$invalid}">
+                            <label for="phone" class="control-label">Phone:</label>
+                            <input type="text" class="form-control" id="phone" placeholder="Your mobile number" ng-model="vm.userData.mobileNumber"
+                                   name="phone"
+                                   ng-minlength="7"
+                                   ng-maxlength="11"
+                                   required
+                                   ng-pattern="/^[0-9]+$/">
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':registerForm.pwd.$invalid}">
+                            <label class="control-label" for="pwd" data-toggle="tooltip" data-placement="bottom" title="Passwords must have at least one non letter or digit character AND one lowercase AND one uppercase.">Password:</label>
+                            <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" ng-model="vm.userData.password"
+                                   ng-minlength="6"
+                                   ng-maxlength="15"
+                                   required
+                                   ng-pattern="/^(?=.*\d)(?=.*[A-Z])(?!.*[^a-zA-Z0-9@#*&%$^+])(.{6,15})$/">
+                        </div>
+                        <p class="bg-warning">
+                            <span ng-show="registerForm.pwd.$invalid">
+                                <small>Passwords must be a combination of Lower case AND Uppercase AND digit AND special character. Between 6 to 15 characters. (Example: Abc#defg5)</small>
+                            </span>
+                        </p>
+                        <div class="form-group">
+                            <label for="pwd">Confirm Password:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" ng-model="vm.userData.confirmPassword">
+                        </div>
+                        <div class="form-group alert alert-danger">
+                            <input type="checkbox" ng-model="checked">&nbsp;&nbsp;<strong>I promise I will not give or take or participate in the act of dowry in any way.</strong> I also agree to the <a href="#" data-toggle="modal" data-target="#termsOfUse">Terms of using</a> this website.
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <button type="submit" ng-model="button" ng-disabled="!(checked && !registerForm.$invalid)" class="btn btn-primary" ng-click="vm.registerUser()">
+                            <span data-ng-hide="vm.loading">
+                                Register
+                            </span>
+
+                            <span data-ng-show="vm.loading">
+                                Wait...
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <aside class="col-sm-4"></aside>
+    </div>
+</form>
