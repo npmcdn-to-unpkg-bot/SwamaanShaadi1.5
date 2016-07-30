@@ -38,7 +38,7 @@ gulp.task('injectjs', function () {
 });
 
 gulp.task('serve', ['connect'], function () {
-    require('opn')('http://localhost:9000');
+    require('opn')('http://localhost:57447');
 });
 
 gulp.task('connect', function () {
@@ -51,6 +51,6 @@ gulp.task('connect', function () {
     require('http').createServer(app)
         .listen(9000)
         .on('listening', function () {
-            console.log('Started connect web server on http://localhost:9000');
+            console.log('Started connect web server on http://localhost:57447');
         });
 });

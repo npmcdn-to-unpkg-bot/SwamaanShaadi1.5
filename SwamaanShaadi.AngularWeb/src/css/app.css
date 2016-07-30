@@ -1,0 +1,22 @@
+﻿body{
+    padding-top: 50px;
+}
+
+.navbar {    
+    margin-bottom:0px;
+    padding: 20px 15px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+footer {    
+    text-align: center;
+    color: white;
+    height:30Px;
+}
+
+.cbp-af-header-shrink {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    /*opacity: 0.9;*/
+}
