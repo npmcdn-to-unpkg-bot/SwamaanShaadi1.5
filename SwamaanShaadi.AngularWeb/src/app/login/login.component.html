@@ -7,11 +7,15 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <label for="phone">Phone:</label>
-                        <input type="text" class="form-control" id="phone" placeholder="Enter mobile number" ng-model="vm.userData.mobileNumber">
+                        <input type="text" class="form-control" id="phone" placeholder="Enter mobile number" 
+                               ng-model="vm.userData.mobileNumber"
+                               ng-pattern="/^[0-9]+$/">
                     </div>
                     <div class="form-group">
                         <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" ng-model="vm.userData.password">
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" 
+                               ng-model="vm.userData.password"
+                               ng-pattern="/^(?!.*[^a-zA-Z0-9^+])(.{6,15})$/">
                     </div>
                 </div>
                 <div class="panel-footer text-center">

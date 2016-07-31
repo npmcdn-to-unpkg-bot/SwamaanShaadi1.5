@@ -33,6 +33,8 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a ng-link="['MatchHistory']"><span class="fa fa-users"></span>&nbsp;&nbsp;Match History</a></li>
+                        <li><a ng-link="['MemberProfile', 'PersonalInfo']"><span class="fa fa-user"></span>&nbsp;&nbsp;My Profile</a></li>
                         <li><a ng-link="['Login']"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Login</a></li>
                         <li><a ng-link="['Register']"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Register</a></li>
                     </ul>
@@ -58,13 +60,18 @@
     
     <!--inject:js-->
     <script src="app/rootModule.js"></script>
-    <script src="app/root.component.js"></script>
+    <script src="app/root.component.js"></script>    
+    <script src="app/accountSetting/accountSetting.component.js"></script>
     <script src="app/common/common.module.js"></script>
     <script src="app/home/home.component.js"></script>
     <script src="app/login/login.component.js"></script>
     <script src="app/matchHistory/matchHistory.component.js"></script>
     <script src="app/memberProfile/memberProfile.component.js"></script>
     <script src="app/register/register.component.js"></script>
+    <script src="app/memberProfile/employmentInfo/employmentInfo.component.js"></script>
+    <script src="app/memberProfile/partnerSearchCriteria/partnerSearchCriteria.component.js"></script>
+    <script src="app/memberProfile/personalInfo/personalInfo.component.js"></script>
+    <script src="app/memberProfile/uploadPhotos/uploadPhotos.component.js"></script>
     <!--endinject-->
 </body>
 </html>
