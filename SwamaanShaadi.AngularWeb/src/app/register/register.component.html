@@ -6,7 +6,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">Register</div>
                     <div class="panel-body">
-                        <div class="form-group" ng-class="{'has-error':registerForm.phone.$invalid}">
+                        <div class="form-group" ng-class="{'has-error':registerForm.phone.$invalid && registerForm.phone.$dirty}">
                             <label for="phone" class="control-label">Phone:</label>
                             <input type="text" class="form-control" id="phone" placeholder="Your mobile number" ng-model="vm.userData.mobileNumber"
                                    name="phone"
@@ -15,25 +15,28 @@
                                    required
                                    ng-pattern="/^[0-9]+$/">
                         </div>
-                        <div class="alert alert-danger" ng-show="registerForm.phone.$invalid">
+                        <div class="alert alert-danger" ng-show="registerForm.phone.$invalid && registerForm.phone.$dirty">
                             Invalid mobile number entered.
                         </div>
-                        <div class="form-group" ng-class="{'has-error':registerForm.pwd.$invalid}">
-                            <label class="control-label" for="pwd" data-toggle="tooltip" data-placement="bottom" title="Password must be 6 to 15 characters long.">Password:</label>
-                            <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" ng-model="vm.userData.password"
+                        <div class="form-group" ng-class="{'has-error':registerForm.pwd.$invalid && registerForm.pwd.$dirty}">
+                            <label class="control-label" for="pwd" data-toggle="tooltip" data-placement="bottom" 
+                                   title="Password must be 6 to 15 characters long.">Password:</label>
+                            <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" 
+                                   ng-model="vm.userData.password"
                                    ng-minlength="6"
                                    ng-maxlength="15"
                                    required
                                    ng-pattern="/^(?!.*[^a-zA-Z0-9^+])(.{6,15})$/">
                         </div>
 
-                        <div class="alert alert-danger" ng-show="registerForm.pwd.$invalid">
+                        <div class="alert alert-danger" ng-show="registerForm.pwd.$invalid && registerForm.pwd.$dirty">
                             Your password must be 6 to 15 characters long.
                         </div>
 
                         <div class="form-group">
                             <label for="pwd">Confirm Password:</label>
-                            <input type="password" class="form-control" id="confirmPwd" placeholder="Enter password" ng-model="vm.userData.confirmPassword">
+                            <input type="password" class="form-control" id="confirmPwd" placeholder="Enter password" 
+                                   ng-model="vm.userData.confirmPassword">
                         </div>
 
                         <div class="alert alert-danger" ng-show="vm.userData.confirmPassword != vm.userData.password">
