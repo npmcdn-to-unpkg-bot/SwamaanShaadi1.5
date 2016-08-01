@@ -21,3 +21,20 @@ footer {
     padding-bottom: 4px;
     opacity: 0.9;
 }
+
+/*Profile tabs - Start*/
+.wizard a {
+    background: #efefef;
+    display: inline-block;
+    margin-right: 5px;
+    min-width: 150px;
+    outline: none;
+    padding: 10px 15px 10px;
+    position: relative;
+    text-decoration: none;
+}
+.wizard .active {
+    background: #00aabb;
+    color: #fff;
+}
+/*Profile tabs - End*/
