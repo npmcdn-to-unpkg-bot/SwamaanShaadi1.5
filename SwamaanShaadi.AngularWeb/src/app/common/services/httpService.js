@@ -1,35 +1,34 @@
 (function () {
     'use strict';
 
-    angular.module('swamaanshaadi.common')
+    angular.module('common.services')
     .factory('httpService', HttpService);
 
-    HttpService.$inject = ['$http', 'cfg'];
+    HttpService.$inject = ['$http', 'appSettings'];
 
-    function HttpService($http, cfg)
+    function HttpService($http, appSettings)
     {
-        // http://webapi.swamaanshaadi.com//api/members/9802293243
+        // GET: http://webapi.swamaanshaadi.com/api/members/9802293243
         var query = function(resource, parameters){
             parameters = parameters || {};
-            var uri = cfg.baseUrl + resource;
+            var uri = appSettings.baseUrl + resource;
             return $http({method: 'GET', url: uri, params: parameters, cache: false});
         };
 
         var createObject = function(resource, object){
-            var uri = cfg.baseUrl + resource;
+            var uri = appSettings.baseUrl + resource;
             return $http({method: 'POST', url: uri, data: angular.toJson(object), cache: false});
         };
 
         var updateObject = function(resource, id, object){
-            var uri = cfg.baseUrl + resource + '/' + id;
+            var uri = appSettings.baseUrl + resource + '/' + id;
             return $http({method: 'PUT', url: uri, data: angular.toJson(object), cache: false});
         };
 
         var deleteObject = function(resource, id, object){
-            var uri = cfg.baseUrl + resource + '/' + id;
+            var uri = appSettings.baseUrl + resource + '/' + id;
             return $http({method: 'DELETE', url: uri, data: angular.toJson(object), cache: false});
         };
-
 
         return {
             query: query,

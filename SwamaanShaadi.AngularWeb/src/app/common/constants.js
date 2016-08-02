@@ -2,8 +2,7 @@
 'use strict';
 
     angular
-        .module('swamaanshaadi.common')
-        .constant('cfg', {
-            baseUrl: '/api'
-        })   
+    .module('common.services')
+    .constant("appSettings", { baseUrl: "http://localhost:52293/api" })
+     
 })();

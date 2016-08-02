@@ -90,77 +90,77 @@ function runMock($httpBackend)
     {
         "districts":
             [
-                {"id":1,"name":"Madhubani","stateID":1},
-                {"id":null,"name":"","stateID":0}],
+                {"Id":1,"name":"Madhubani","stateID":1},
+                {"Id":null,"name":"","stateID":0}],
         "states":
             [
-                {"id":1,"name":"Bihar","countryID":1}
+                {"Id":1,"name":"Bihar","countryID":1}
             ],
         "countries":
             [
-                {"id":1,"name":"India"}
+                {"Id":1,"name":"India"}
             ],
         "religions":
             [
-                {"id":1,"name":"Hindu"},
-                {"id":2,"name":"Muslim"},
-                {"id":null,"name":"Ignore. All religions are equal"}
+                {"Id":1,"name":"Hindu"},
+                {"Id":2,"name":"Muslim"},
+                {"Id":null,"name":"Ignore. All religions are equal"}
             ],
         "castes":
             [
-                {"id":3,"name":"Bhumihar","religionID":1},
-                {"id":2,"name":"Brahman","religionID":1},
-                {"id":5,"name":"Kayastha","religionID":1},
-                {"id":6,"name":"Kurmi","religionID":1},
-                {"id":7,"name":"Kushwahas","religionID":1},
-                {"id":8,"name":"Other","religionID":1},
-                {"id":4,"name":"Rajput","religionID":1},
-                {"id":1,"name":"Yadav","religionID":1},
-                {"id":null,"name":"Ignore. We all are same","religionID":0}
+                {"Id":3,"name":"Bhumihar","religionID":1},
+                {"Id":2,"name":"Brahman","religionID":1},
+                {"Id":5,"name":"Kayastha","religionID":1},
+                {"Id":6,"name":"Kurmi","religionID":1},
+                {"Id":7,"name":"Kushwahas","religionID":1},
+                {"Id":8,"name":"Other","religionID":1},
+                {"Id":4,"name":"Rajput","religionID":1},
+                {"Id":1,"name":"Yadav","religionID":1},
+                {"Id":null,"name":"Ignore. We all are same","religionID":0}
             ],
         "allProfileForValues":
             [
-                {"id":5,"relation":"Brother"},
-                {"id":2,"relation":"Daughter"},
-                {"id":7,"relation":"Friend"},
-                {"id":6,"relation":"Relative"},
-                {"id":1,"relation":"Self"},
-                {"id":4,"relation":"Sister"},
-                {"id":3,"relation":"Son"}
+                {"Id":5,"relation":"Brother"},
+                {"Id":2,"relation":"Daughter"},
+                {"Id":7,"relation":"Friend"},
+                {"Id":6,"relation":"Relative"},
+                {"Id":1,"relation":"Self"},
+                {"Id":4,"relation":"Sister"},
+                {"Id":3,"relation":"Son"}
             ],
         "genders":
             [
-                {"id":2,"name":"Female"},
-                {"id":1,"name":"Male"}
+                {"Id":2,"name":"Female"},
+                {"Id":1,"name":"Male"}
             ],
         "allMaritalStatus":
             [
-                {"id":2,"status":"Divorved"},
-                {"id":1,"status":"Single"},
-                {"id":3,"status":"Widowed"},
-                {"id":null,"status":"Does not matter"}
+                {"Id":2,"status":"Divorved"},
+                {"Id":1,"status":"Single"},
+                {"Id":3,"status":"Widowed"},
+                {"Id":null,"status":"Does not matter"}
             ],
         "allEmploymentTypes":
             [
-                {"id":1,"type":"Does not matter"},
-                {"id":5,"type":"Must be working"},
-                {"id":4,"type":"Not Working"},
-                {"id":3,"type":"Own Business"},
-                {"id":2,"type":"Salaried"}
+                {"Id":1,"type":"Does not matter"},
+                {"Id":5,"type":"Must be working"},
+                {"Id":4,"type":"Not Working"},
+                {"Id":3,"type":"Own Business"},
+                {"Id":2,"type":"Salaried"}
             ],
         "educations":
             [
-                {"id":1,"degree":"Not formally educated"},
-                {"id":2,"degree":"10th education"},
-                {"id":3,"degree":"High school education"},
-                {"id":4,"degree":"College education (BA, MA etc)"},
-                {"id":5,"degree":"Professional College education (Engineer, Doctor, CA etc)"},
-                {"id":null,"degree":"Does not matter"}
+                {"Id":1,"degree":"Not formally educated"},
+                {"Id":2,"degree":"10th education"},
+                {"Id":3,"degree":"High school education"},
+                {"Id":4,"degree":"College education (BA, MA etc)"},
+                {"Id":5,"degree":"Professional College education (Engineer, Doctor, CA etc)"},
+                {"Id":null,"degree":"Does not matter"}
             ],
         "allAccountStatus":
             [
-                {"id":1,"status":"Active"},
-                {"id":2,"status":"Deactive  "}
+                {"Id":1,"status":"Active"},
+                {"Id":2,"status":"Deactive  "}
             ]
     };
 
