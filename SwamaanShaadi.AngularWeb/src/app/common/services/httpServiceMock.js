@@ -7,43 +7,84 @@ app.run(runMock);
 
 function runMock($httpBackend)
 {
-    var member = {
-        "userName":"9802293243",
-        "firstName":"Radha",
-        "middleName":"",
-        "lastName":"Kumari",
-        "fatherName":"Kishan Babu",
-        "dateOfBirth":"1983-01-19T00:00:00",
-        "mobileNo":9802293243,
-        "emailID":null,
-        "profileForID":2,
-        "genderID":2,
-        "religionID":1,
-        "casteID":null,
-        "address":"Village: Belhi\nThana: Laukahi",
-        "districtID":1,
-        "stateID":1,
-        "countryID":1,
-        "maritalStatusID":1,
-        "photographs":
-            ["MemberPhotographs\\9802293243\\10685337_1540648549505334_1312793180158511818_n.jpg",
-            "MemberPhotographs\\9802293243\\10947266_1598115890425266_343687920104590504_n.jpg"],
-        "employmentTypeID":2,
-        "companyName":"Self",
-        "workLocationAddress":"Not available",
-        "educationID":3,
-        "partnerMinAge":35,
-        "partnerMaxAge":45,
-        "partnerCasteID":null,
-        "partnerReligionID":null,
-        "partnerEducationID":null,
-        "partnerEmploymentTypeID":1,
-        "partnerMaritalStatusID":null,
-        "registrationDate":"2016-04-24T08:02:04.13",
-        "mobileAlertSubscription":1,
-        "emailAlertSubscription":2,
-        "accountStatusID":1
-    };
+    var members = [
+        {
+            "memberId": 1,
+            "userName":"9802293243",
+            "firstName":"Radha 1",
+            "middleName":"",
+            "lastName":"Kumari",
+            "fatherName":"Kishan Babu",
+            "dateOfBirth":"1983-01-19T00:00:00",
+            "mobileNo":9802293243,
+            "emailId":null,
+            "profileForId":2,
+            "genderId":2,
+            "religionId":1,
+            "casteId":null,
+            "address":"Village: Belhi\nThana: Laukahi",
+            "districtId":1,
+            "stateId":1,
+            "countryId":1,
+            "maritalStatusId":1,
+            "photographs":
+                ["MemberPhotographs\\9802293243\\10685337_1540648549505334_1312793180158511818_n.jpg",
+                "MemberPhotographs\\9802293243\\10947266_1598115890425266_343687920104590504_n.jpg"],
+            "employmentTypeId":2,
+            "companyName":"Self",
+            "workLocationAddress":"Not available",
+            "educationId":3,
+            "partnerMinAge":35,
+            "partnerMaxAge":45,
+            "partnerCasteId":null,
+            "partnerReligionId":null,
+            "partnerEducationId":null,
+            "partnerEmploymentTypeId":1,
+            "partnerMaritalStatusId":null,
+            "registrationDate":"2016-04-24T08:02:04.13",
+            "mobileAlertSubscription":1,
+            "emailAlertSubscription":2,
+            "accountStatusId":1
+        },
+        {
+            "memberId": 2,
+            "userName":"9802293244",
+            "firstName":"Radha 2",
+            "middleName":"",
+            "lastName":"Kumari",
+            "fatherName":"Kishan Babu",
+            "dateOfBirth":"1983-01-19T00:00:00",
+            "mobileNo":9802293243,
+            "emailId":null,
+            "profileForId":2,
+            "genderId":2,
+            "religionId":1,
+            "casteId":null,
+            "address":"Village: Belhi\nThana: Laukahi",
+            "districtId":1,
+            "stateId":1,
+            "countryId":1,
+            "maritalStatusId":1,
+            "photographs":
+                ["MemberPhotographs\\9802293243\\10685337_1540648549505334_1312793180158511818_n.jpg",
+                "MemberPhotographs\\9802293243\\10947266_1598115890425266_343687920104590504_n.jpg"],
+            "employmentTypeId":2,
+            "companyName":"Self",
+            "workLocationAddress":"Not available",
+            "educationId":3,
+            "partnerMinAge":35,
+            "partnerMaxAge":45,
+            "partnerCasteId":null,
+            "partnerReligionId":null,
+            "partnerEducationId":null,
+            "partnerEmploymentTypeId":1,
+            "partnerMaritalStatusId":null,
+            "registrationDate":"2016-04-24T08:02:04.13",
+            "mobileAlertSubscription":1,
+            "emailAlertSubscription":2,
+            "accountStatusId":1
+        }
+    ];
 
     var allDropDownData = 
     {
@@ -118,9 +159,54 @@ function runMock($httpBackend)
             ],
         "allAccountStatus":
             [
-                {"id":1,"status":"Active    "},{"id":2,"status":"Deactive  "}
+                {"id":1,"status":"Active"},
+                {"id":2,"status":"Deactive  "}
             ]
-        };
+    };
+
+    var memberUrl = "/api/members";
+    $httpBackend.whenGET(memberUrl).respond(members);
+
+    var editingRegex = new RegExp(memberUrl + "/[0-9][0-9]*", '');
+    $httpBackend.whenGET(editingRegex).respond(function (method, url, data) {
+        var member = {"memberId": 0};
+        var parameters = url.split('/');
+        var length = parameters.length;
+        var id = parameters[length - 1];
+
+        if (id > 0) {
+            for (var i = 0; i < members.length; i++) {
+                if (members[i].memberId == id) {
+                    member = members[i];
+                    break;
+                }
+            };
+        }
+        return [200, member, {}];
+    });
+
+    $httpBackend.whenPOST(memberUrl).respond(function (method, url, data) {
+        var member = angular.fromJson(data);
+
+        if (!member.memberUrl) {
+                // new member Id
+                member.memberId = members[members.length - 1].memberId + 1;
+                members.push(member);
+            }
+            else {
+                // Updated member
+                for (var i = 0; i < members.length; i++) {
+                    if (members[i].memberId == member.memberId) {
+                        members[i] = member;
+                        break;
+                    }
+                };
+            }
+            return [200, member, {}];
+        });
+
+        // Pass through any requests for application files
+        $httpBackend.whenGET(/app/).passThrough();
 }
 
 })();

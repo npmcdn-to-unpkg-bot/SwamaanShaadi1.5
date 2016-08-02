@@ -8,6 +8,7 @@
 
     function HttpService($http, cfg)
     {
+        // http://webapi.swamaanshaadi.com//api/members/9802293243
         var query = function(resource, parameters){
             parameters = parameters || {};
             var uri = cfg.baseUrl + resource;

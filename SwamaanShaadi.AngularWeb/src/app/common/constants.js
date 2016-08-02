@@ -4,6 +4,6 @@
     angular
         .module('swamaanshaadi.common')
         .constant('cfg', {
-            baseUrl: '/swamaanshaadi/api'
+            baseUrl: '/api'
         })   
 })();
