@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
+using System.Web.Http.Cors;
 
 namespace SwamaanShaadi.WebApi
 {
@@ -20,10 +17,15 @@ namespace SwamaanShaadi.WebApi
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            //var cors = new EnableCorsAttribute("http://localhost:54592", "*", "*");
+            var cors = new EnableCorsAttribute("http://www.swamaanshaadi.com", "*", "*");
+            config.EnableCors(cors);
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{userName}",
+                defaults: new { userName = RouteParameter.Optional }
             );
         }
     }

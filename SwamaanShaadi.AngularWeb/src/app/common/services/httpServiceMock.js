@@ -86,7 +86,7 @@ function runMock($httpBackend)
         }
     ];
 
-    var allDropDownData = 
+    var allLookupData = 
     {
         "districts":
             [

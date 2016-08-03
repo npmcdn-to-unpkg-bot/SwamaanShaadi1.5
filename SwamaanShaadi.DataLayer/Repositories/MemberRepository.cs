@@ -13,6 +13,13 @@ namespace SwamaanShaadi.DataLayer
     {
         //MembersContext context = new MembersContext();
         private MembersContext context;
+
+        public MemberRepository()
+        {
+            var uow = new UnitOfWorkForMembers();
+            context = uow.Context;
+        }
+
         public MemberRepository(UnitOfWorkForMembers uow)
         {
             context = uow.Context;
