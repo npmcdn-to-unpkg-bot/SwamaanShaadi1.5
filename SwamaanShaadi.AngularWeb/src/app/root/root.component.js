@@ -4,7 +4,7 @@
     var module = angular.module("swamaanShaadi");
 
     module.component("rootComponent", {
-        templateUrl: "app/root.component.html",
+        templateUrl: "app/root/root.component.html",
         $routeConfig: [
             { path: "/home", component: "home", name: "Home" },
             { path: "/login", component: "login", name: "Login" },
