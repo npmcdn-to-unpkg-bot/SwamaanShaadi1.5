@@ -3,10 +3,9 @@
 
     angular
         .module("common.services")
-        .factory("currentUser",
-                  currentUser)
+        .factory("currentUser", CurrentUser)
 
-    function currentUser() {
+    function CurrentUser() {
         var profile = {
             isLoggedIn: false,
             username: "",
