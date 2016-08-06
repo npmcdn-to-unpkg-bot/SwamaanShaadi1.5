@@ -1,1 +1,82 @@
-﻿Partner Search Criteria
+﻿<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" name="partnerSearchInfoForm" novalidate>
+            <fieldset>
+                <!--<legend>Partner Search Information</legend>-->
+                <br />
+                <!--Minimum Age Start-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label"
+                           for="inputMinimumAge">Minimum Age</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="inputMinimumAge" name="inputMinimumAge" ng-model="vm.member.partnerMinAge"
+                                ng-options="minAge.age as minAge.age for minAge in vm.listMinAge"></select>
+                    </div>
+                </div>
+                <!--Minimum Age End-->
+                <!--Maximum Age Start-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label"
+                           for="inputMaximumAge">Maximum Age</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="inputMaximumAge" name="inputMaximumAge" ng-model="vm.member.partnerMaxAge"
+                                ng-options="maxAge.age as maxAge.age for maxAge in vm.listMaxAge"></select>
+                    </div>
+                </div>
+                <!--Maximum Age End-->
+                <!--Education Start-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label"
+                           for="inputEducation">Minimum Education</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="inputEducation" name="inputEducation" ng-model="vm.member.partnerEducationID"
+                                ng-options="education.id as education.degree for education in vm.educations"></select>
+                    </div>
+                </div>
+                <!--Education End-->
+                <!--Religion Start-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label"
+                           for="inputPartnerReligion">Religion</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="inputPartnerReligion" name="inputPartnerReligion" ng-model="vm.member.partnerReligionID"
+                                ng-options="religion.id as religion.name for religion in vm.religions"
+                                ng-change="vm.getCastesForPartnerSearch(vm.member.partnerReligionID)"></select>
+                    </div>
+                </div>
+                <!--Religion End-->
+                <!--Caste Start-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label"
+                           for="inputPartnerCaste">Caste</label>
+                    <div class="col-md-3">
+                        <select class="form-control" id="inputPartnerCaste" name="inputPartnerCaste" ng-model="vm.member.partnerCasteID"
+                                ng-options="caste.id as caste.name for caste in vm.castesForAReligionForPartnerSearch"></select>
+                    </div>
+                </div>
+                <!--Caste End-->
+                <!--Employment Type Start-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label"
+                           for="inputPartnerEmploymentType">Employment Type</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="inputPartnerEmploymentType" name="inputPartnerEmploymentType" ng-model="vm.member.partnerEmploymentTypeID"
+                                ng-options="allEmploymentType.id as allEmploymentType.type for allEmploymentType in vm.allEmploymentTypes"></select>
+                    </div>
+                </div>
+                <!--Employment Type End-->
+                <!--Marital Status Start-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label"
+                           for="inputPartnetMaritalStatus">Marital Status</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="inputPartnetMaritalStatus" name="inputPartnetMaritalStatus" ng-model="vm.member.partnerMaritalStatusID"
+                                ng-options="maritalStatus.id as maritalStatus.status for maritalStatus in vm.allMaritalStatus"></select>
+                    </div>
+                </div>
+                <!--Marital Status End-->
+            </fieldset>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

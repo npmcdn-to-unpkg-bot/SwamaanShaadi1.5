@@ -1,1 +1,65 @@
-﻿Account Setting
+﻿<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" name="memberAccountInfoForm" novalidate>
+            <fieldset>
+                <!--<legend>Member Account Information</legend>-->
+                <!--Account Status Start-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                                   for="inputAccountStatus">Account Status</label>
+                            <div class="col-md-4">
+                                <label class="radio-inline">
+                                    <input id="inputAccountStatus" name="inputAccountStatus" type="radio" ng-model="vm.member.accountStatusID" value="1">Active
+                                </label>
+                                <label class="radio-inline">
+                                    <input id="inputAccountStatus" name="inputAccountStatus" type="radio" ng-model="vm.member.accountStatusID" value="2">Inactive
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Account Status End-->
+                <!--Mobile Alert Start-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                                   for="inputMobileAlert">Mobile Alert</label>
+                            <div class="col-md-4">
+                                <label class="radio-inline">
+                                    <input id="inputMobileAlert" name="inputMobileAlert" type="radio" ng-model="vm.member.mobileAlertSubscription" value="1">Active
+                                </label>
+                                <label class="radio-inline">
+                                    <input id="inputMobileAlert" name="inputMobileAlert" type="radio" ng-model="vm.member.mobileAlertSubscription" value="2">Inactive
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Mobile Alert End-->
+                <!--Email Alert Start-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"
+                                   for="inputEmailAlert">Email Alert</label>
+                            <div class="col-md-4">
+                                <label class="radio-inline">
+                                    <input id="inputEmailAlert" name="inputEmailAlert" type="radio" ng-model="vm.member.emailAlertSubscription" value="1">Active
+                                </label>
+                                <label class="radio-inline">
+                                    <input id="inputEmailAlert" name="inputEmailAlert" type="radio" ng-model="vm.member.emailAlertSubscription" value="2">Inactive
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Email Alert End-->
+
+            </fieldset>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

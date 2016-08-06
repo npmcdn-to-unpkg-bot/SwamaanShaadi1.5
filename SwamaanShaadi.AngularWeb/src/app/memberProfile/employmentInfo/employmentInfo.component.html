@@ -1,1 +1,55 @@
-﻿Employment Info
+﻿<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" name="employmentInfoForm" novalidate>
+            <fieldset>
+                <!--<legend>Employment Information</legend>-->
+                <br />
+                <!--Employment Type Start-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label"
+                           for="inputEmploymentType">Employment Type</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="inputEmploymentType" name="inputEmploymentType" ng-model="vm.member.employmentTypeID"
+                                ng-options="employmentType.id as employmentType.type for employmentType in vm.allEmploymentTypes | filter: { type: '!' + 'Does not matter'} | filter: { type: '!' + 'Must be working'}"></select>
+                    </div>
+                </div>
+                <!--Employment Type End-->
+                <!--Company Name Start-->
+                <div class="form-group" ng-class="{'has-error':employmentInfoForm.inputCompanyName.$invalid}">
+                    <label class="col-md-3 control-label"
+                           for="inputCompanyName">Company Name</label>
+                    <div class="col-md-4">
+                        <input class="form-control"
+                               id="inputCompanyName"
+                               name="inputCompanyName"
+                               type="text"
+                               ng-model="vm.member.companyName"
+                               ng-minlength="1"
+                               ng-maxlength="100"
+                               ng-pattern="/^[a-zA-Z0-9. ]+$/" />
+                    </div>
+                </div>
+                <!--Company Name End-->
+                <!--Work Location Name Start-->
+                <div class="form-group" ng-class="{'has-error':employmentInfoForm.inputWorkLocationAddress.$invalid}">
+                    <label class="col-md-3 control-label"
+                           for="inputWorkLocationAddress">Work Location Address</label>
+                    <div class="col-md-4">
+                        <textarea class="form-control"
+                                  id="inputWorkLocationAddress"
+                                  name="inputWorkLocationAddress"
+                                  type="text"
+                                  ng-model="vm.member.workLocationAddress"
+                                  ng-minlength="2"
+                                  ng-maxlength="500"
+                                  ng-pattern="/^[a-zA-Z0-9\n, ]+$/" />
+                    </div>
+                </div>
+                <!--Work Location Name End-->
+
+
+            </fieldset>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

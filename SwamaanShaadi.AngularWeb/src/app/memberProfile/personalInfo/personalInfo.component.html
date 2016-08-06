@@ -1,1 +1,198 @@
-﻿Personal Info
+﻿<div class="row">
+    <div class="col-md-12">
+
+        <form name="personalInfoForm" novalidate>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group" ng-class="{'has-error':personalInfoForm.inputFirstName.$invalid}">
+                        <label class="control-label" for="inputFirstName">First Name</label>
+                        <input class="form-control"
+                               id="inputFirstName"
+                               name="inputFirstName"
+                               type="text"
+                               placeholder="Required"
+                               ng-model="vm.member.firstName"
+                               ng-minlength="4"
+                               ng-maxlength="50"
+                               required
+                               ng-pattern="/^[a-zA-Z]+$/" />
+                    </div>
+                    <!--<span style="color:red" class="help-block has-error" ng-show="personalInfoForm.inputFirstName.$invalid">
+                        Required
+                    </span>-->
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group" ng-class="{'has-error':personalInfoForm.inputMiddleName.$invalid}">
+                        <label for="inputMiddleName">Middle Name</label>
+                        <input class="form-control"
+                               id="inputMiddleName"
+                               name="inputMiddleName"
+                               type="text"
+                               ng-model="vm.member.middleName"
+                               ng-minlength="4"
+                               ng-maxlength="50"
+                               ng-pattern="/^[a-zA-Z]+$/" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group" ng-class="{'has-error':personalInfoForm.inputLastName.$invalid}">
+                        <label class="control-label" for="inputLastName">Last Name</label>
+                        <input class="form-control"
+                               id="inputLastName"
+                               name="inputLastName"
+                               type="text"
+                               placeholder="Required"
+                               ng-model="vm.member.lastName"
+                               ng-minlength="4"
+                               ng-maxlength="50"
+                               required
+                               ng-pattern="/^[a-zA-Z]+$/" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="control-label" for="inputDateOfBirth">Date Of Birth</label>
+                    <p class="input-group">
+                        <input type="text" id="inputDateOfBirth" name="inputDateOfBirth" ng-model="vm.member.dateOfBirth" class="form-control" uib-datepicker-popup="MMM dd, yyyy" is-open="vm.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" readonly />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="vm.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group" ng-class="{'has-error':personalInfoForm.inputFatherName.$invalid}">
+                        <label class="control-label" for="inputFatherName">Father's Name</label>
+                        <input class="form-control"
+                               id="inputFatherName"
+                               name="inputFatherName"
+                               type="text"
+                               placeholder="Required"
+                               ng-model="vm.member.fatherName"
+                               ng-minlength="4"
+                               ng-maxlength="50"
+                               required
+                               ng-pattern="/^[a-zA-Z ]+$/" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group"
+                         ng-class="{'has-error':personalInfoForm.inputMobileNumber.$invalid}">
+                        <label class="control-label" for="inputMobileNumber">Mobile Number</label>
+                        <input class="form-control"
+                               id="inputMobileNumber"
+                               name="inputMobileNumber"
+                               type="text"
+                               required
+                               placeholder="Required"
+                               ng-model="vm.member.mobileNo" readonly />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':personalInfoForm.inputEmail.$invalid}">
+                        <label for="inputEmail">Email</label>
+                        <input class="form-control"
+                               id="inputEmail"
+                               name="inputEmail"
+                               type="text"
+                               ng-model="vm.member.emailID"
+                               ng-minlength="4"
+                               ng-maxlength="50"
+                               ng-pattern="/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="inputProfileFor">Profile For</label><br />
+                        <select class="form-control" id="inputProfileFor" name="inputProfileFor" ng-model="vm.member.profileForID"
+                                ng-options="profileForValue.id as profileForValue.relation for profileForValue in vm.allProfileForValues"></select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="inputMaritalStatus">Marital Status</label><br />
+                        <select class="form-control" id="inputMaritalStatus" name="inputMaritalStatus" ng-model="vm.member.maritalStatusID"
+                                ng-options="maritalStatus.id as maritalStatus.status for maritalStatus in vm.allMaritalStatus | filter: { status: '!' + 'Does not matter'}"></select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="inputGender">Gender</label><br />
+                        <select class="form-control" id="inputGender" name="inputGender" ng-model="vm.member.genderID"
+                                ng-options="gender.id as gender.name for gender in vm.genders"></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="inputState">State</label><br />
+                        <select class="form-control" id="inputState" name="inputState" ng-model="vm.member.stateID"
+                                ng-options="state.id as state.name for state in vm.states"></select>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="inputDistrict">District</label><br />
+                        <select class="form-control" id="inputDistrict" name="inputDistrict" ng-model="vm.member.districtID"
+                                ng-options="district.id as district.name for district in vm.districts"></select>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group" ng-class="{'has-error':personalInfoForm.inputAddress.$invalid}">
+                        <label class="control-label" for="inputAddress">Address</label><br />
+                        <textarea class="form-control" id="inputAddress" name="inputAddress" ng-model="vm.member.address"
+                                  placeholder="Required"
+                                  ng-minlength="4"
+                                  ng-maxlength="500"
+                                  ng-pattern="/^[a-zA-Z0-9\n,: ]+$/"
+                                  required></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="inputEducation">Education</label><br />
+                        <select class="form-control" id="inputEducation" name="inputEducation" ng-model="vm.member.educationID"
+                                ng-options="education.id as education.degree for education in vm.educations | filter: { degree: '!' + 'Does not matter'}"></select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="inputReligion">Religion</label><br />
+                        <select class="form-control" id="inputReligion" name="inputReligion" ng-model="vm.member.religionID"
+                                ng-options="religion.id as religion.name for religion in vm.religions"
+                                ng-change="vm.getCastes(vm.member.religionID)"></select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="inputCaste">Caste</label><br />
+                        <select class="form-control" id="inputCaste" name="inputCaste" ng-model="vm.member.casteID"
+                                ng-options="caste.id as caste.name for caste in vm.castesForAReligion"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

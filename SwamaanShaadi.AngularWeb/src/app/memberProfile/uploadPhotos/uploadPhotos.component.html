@@ -1,1 +1,23 @@
-﻿Upload Photo
+﻿<div class="row">
+    <div class="col-md-12">
+        <form name="imageUploadForm">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="well"><input type="file" ng-file-select="startUploading($files)" multiple></div>
+                </div>
+            </div>
+
+            <div class="row" ng-repeat="photograph in member.photographs track by $index">
+                <br />
+                <div class="col-sm-6"><img class="img-responsive" ng-src="{{vm.serverPath}}/{{photograph}}" /></div>
+                <div class="col-sm-1">
+                    <button type="button" class="btn btn-danger btn-sm" ng-click="deletePhotograph(photograph)">
+                        <i class="fa fa-trash-o fa-lg"></i> Remove
+                    </button>
+                </div>
+                <div class="col-sm-5"></div>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>
