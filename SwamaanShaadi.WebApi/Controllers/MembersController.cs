@@ -25,40 +25,8 @@ namespace SwamaanShaadi.WebApi.Controllers
         {
             string clientIPAddress = HttpContext.Current.Request.UserHostAddress;
 
-            Member member = memberRepository
-                            .AllIncluding(
-                                m => m.AccountStatus,
-                                m => m.Address,
-                                m => m.Caste,
-                                m => m.CompanyName,
-                                m => m.DateOfBirth,
-                                m => m.District,
-                                m => m.Education,
-                                m => m.EmailAlertActive,
-                                m => m.EmploymentType,
-                                m => m.FatherName,
-                                m => m.FirstName,
-                                m => m.Gender,
-                                m => m.HomeState,
-                                m => m.LastName,
-                                m => m.MaritalStatus,
-                                m => m.MemberPhotographs,
-                                m => m.MiddleName,
-                                m => m.MobileAlertActive,
-                                m => m.MobileNumber,
-                                m => m.PartnerCastes,
-                                m => m.PartnerDistricts,
-                                m => m.PartnerEducations,
-                                m => m.PartnerMaritalStatuses,
-                                m => m.PartnerMaxAge,
-                                m => m.PartnerMinAge,
-                                m => m.ProfileFor,
-                                m => m.RegistrationDate,
-                                m => m.Religion,
-                                m => m.State,
-                                m => m.WorkLocationAddress
-                            ).Where(m => m.MemberId == memberId).SingleOrDefault();
-
+            Member member = memberRepository.GetMemberProfile(memberId);
+                            
             if (member == null)
             {
                 Log.Error("No member found for GET Request recieved for member id: " + memberId);
@@ -89,7 +57,7 @@ namespace SwamaanShaadi.WebApi.Controllers
             }
             try
             {
-                memberRepository.InsertOrUpdate(member);
+                memberRepository.UpdateMemberProfile(memberId, member);
                 return Ok();
             }
             catch (Exception ex)

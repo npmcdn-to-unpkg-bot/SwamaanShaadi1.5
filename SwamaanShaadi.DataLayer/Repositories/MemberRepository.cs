@@ -9,76 +9,33 @@ using System.Threading.Tasks;
 
 namespace SwamaanShaadi.DataLayer
 {
-    public class MemberRepository : IMemberRepository
+    public class MemberRepository
     {
-        //MembersContext context = new MembersContext();
-        private MembersContext context;
-
-        public MemberRepository()
+        public Member GetMemberProfile(int memberId)
         {
-            var uow = new UnitOfWorkForMembers();
-            context = uow.Context;
-        }
-
-        public MemberRepository(UnitOfWorkForMembers uow)
-        {
-            context = uow.Context;
-        }
-
-        public IQueryable<Member> All
-        {
-            get
+            Member member = null;
+            using (MembersContext context = new MembersContext())
             {
-                return context.Members;
+                member = context.Members.Find(memberId);
             }
+            return member;
         }
 
-        public IQueryable<Member> AllIncluding(params Expression<Func<Member, object>>[] includeProperties)
+        public void UpdateMemberProfile(int memberId, Member member)
         {
-            IQueryable<Member> query = context.Members;
-            foreach (var includeProperty in includeProperties)
+            using (MembersContext context = new MembersContext())
             {
-                query = query.Include(includeProperty);
-            }
-            return query;
-        }
-
-        public Member Find(int id)
-        {
-            return context.Members.Find(id);
-        }
-
-        //For Member only update, no update to related objects
-        public void InsertOrUpdate(Member member)
-        {
-            if (member.MemberId == default(int))
-            {
-                //New entity
-                context.SetAdd(member);
-                //context.Entry(member).State = EntityState.Added;
-            }
-            else
-            {
-                context.SetModified(member);
-                //Existing entity
-                //context.Entry(member).State = EntityState.Modified;
-            }
-        }
-
-        public void Delete(int id)
-        {
-            var member = context.Members.Find(id);
-            context.Members.Remove(member);
-        }
-
-        //public void Save()
-        //{
-        //    context.SaveChanges();
-        //}
-
-        public void Dispose()
-        {
-            context.Dispose();
+                if (memberId == 0)
+                {
+                    context.Members.Add(member);                    
+                }
+                else
+                {
+                    context.Members.Attach(member);
+                    context.Entry(member).State = EntityState.Modified;
+                }
+                context.SaveChanges();
+            }                
         }
     }
 }
