@@ -26,7 +26,7 @@ namespace SwamaanShaadi.WebApi.Controllers
             string clientIPAddress = HttpContext.Current.Request.UserHostAddress;
 
             Member member = memberRepository.GetMemberProfile(memberId);
-                            
+
             if (member == null)
             {
                 Log.Error("No member found for GET Request recieved for member id: " + memberId);

@@ -86,7 +86,7 @@ namespace SwamaanShaadi.DataLayer
             this.Property(t => t.ClientIPAddress).HasColumnName("ClientIPAddress");
 
             // Relationships
-            this.HasOptional(t => t.AccountStatus);
+            this.HasOptional(t => t.LastName);
             this.HasOptional(t => t.Education);
             this.HasOptional(t => t.EmploymentType);
             this.HasOptional(t => t.Gender);

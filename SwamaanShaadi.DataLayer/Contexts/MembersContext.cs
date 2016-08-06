@@ -25,6 +25,11 @@ namespace SwamaanShaadi.DataLayer
         public DbSet<ProfileFor> AllProfileFor { get; set; }
         public DbSet<MemberPhotograph> MemberPhotographs { get; set; }
 
+        public DbSet<PartnerCaste> PartnerCaste { get; set; }
+        public DbSet<PartnerDistrict> PartnerDistrict { get; set; }
+        public DbSet<PartnerEducation> PartnerEducation { get; set; }
+        public DbSet<PartnerMaritalStatus> PartnerMaritalStatus { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
