@@ -12,15 +12,14 @@ using System.Web.Script.Serialization;
 
 namespace SwamaanShaadi.WebApi.Controllers
 {
-    [Authorize()]
-    public class MembersController : ApiController
+    public class MemberController : ApiController
     {
         private JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
         private MemberRepository memberRepository = new MemberRepository();
         private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 
-        // GET: api/Members/5
+        // GET: api/Member/5
         public IHttpActionResult Get(int memberId)
         {
             string clientIPAddress = HttpContext.Current.Request.UserHostAddress;
@@ -38,7 +37,7 @@ namespace SwamaanShaadi.WebApi.Controllers
 
 
         //Update
-        // PUT: api/Members/5
+        // PUT: api/Member/5
         public IHttpActionResult Put(int memberId, [FromBody]Member member)
         {
             string clientIPAddress = HttpContext.Current.Request.UserHostAddress;

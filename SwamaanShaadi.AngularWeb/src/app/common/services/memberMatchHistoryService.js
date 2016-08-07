@@ -7,7 +7,7 @@
 
     MemberMatchHistoryService.$inject = ['$resource', 'appSettings', 'currentUser'];   
     function MemberMatchHistoryService($resource, appSettings, currentUser) {
-        return $resource(appSettings.serverPath + "/api/MemberMatchHistory/:userName", null,
+        return $resource(appSettings.serverPath + "/api/MemberMatchHistory/:memberId", null,
             {
                 'query': {
                     method: 'GET', isArray: true,

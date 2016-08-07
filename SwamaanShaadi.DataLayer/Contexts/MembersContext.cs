@@ -25,6 +25,8 @@ namespace SwamaanShaadi.DataLayer
         public DbSet<ProfileFor> AllProfileFor { get; set; }
         public DbSet<MemberPhotograph> MemberPhotographs { get; set; }
 
+        public DbSet<MatchHistory> MatchHistory { get; set; }
+
         public DbSet<PartnerCaste> PartnerCaste { get; set; }
         public DbSet<PartnerDistrict> PartnerDistrict { get; set; }
         public DbSet<PartnerEducation> PartnerEducation { get; set; }
@@ -46,20 +48,12 @@ namespace SwamaanShaadi.DataLayer
             modelBuilder.Configurations.Add(new MaritalStatusMap());
             modelBuilder.Configurations.Add(new ProfileForMap());
             modelBuilder.Configurations.Add(new MemberPhotographMap());
+            modelBuilder.Configurations.Add(new MatchHistoryMap());
+
             modelBuilder.Configurations.Add(new PartnerDistrictMap());
             modelBuilder.Configurations.Add(new PartnerCasteMap());
             modelBuilder.Configurations.Add(new PartnerEducationMap());
             modelBuilder.Configurations.Add(new PartnerMaritalStatusMap());
-        }
-
-        public void SetModified(object entity)
-        {
-            Entry(entity).State = EntityState.Modified;
-        }
-
-        public void SetAdd(object entity)
-        {
-            Entry(entity).State = EntityState.Added;
         }
     }
 }

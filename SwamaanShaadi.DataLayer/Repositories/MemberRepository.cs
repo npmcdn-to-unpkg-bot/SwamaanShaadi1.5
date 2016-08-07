@@ -38,6 +38,7 @@ namespace SwamaanShaadi.DataLayer
             }                
         }
 
+        #region IDisposable
         // Flag: Has Dispose already been called?
         bool disposed = false;
 
@@ -69,5 +70,7 @@ namespace SwamaanShaadi.DataLayer
         {
             Dispose(false);
         }
+        #endregion
+
     }
 }

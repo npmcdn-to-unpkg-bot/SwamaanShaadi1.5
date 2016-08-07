@@ -7,7 +7,7 @@
 
     MemberService.$inject = ['$resource', 'appSettings', 'currentUser'];
     function MemberService($resource, appSettings, currentUser) {
-        return $resource(appSettings.serverPath + "/api/members/:userName", null,
+        return $resource(appSettings.serverPath + "/api/members/:memberId", null,
             {
                 'query': {
                     method: 'GET', isArray:true,

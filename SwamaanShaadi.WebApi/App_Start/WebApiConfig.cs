@@ -18,14 +18,14 @@ namespace SwamaanShaadi.WebApi
             config.MapHttpAttributeRoutes();
 
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            //var cors = new EnableCorsAttribute("http://localhost:54592", "*", "*");
-            var cors = new EnableCorsAttribute("http://www.swamaanshaadi.com", "*", "*");
+            var cors = new EnableCorsAttribute("http://localhost:57333", "*", "*");
+            //var cors = new EnableCorsAttribute("http://www.swamaanshaadi.com", "*", "*");
             config.EnableCors(cors);
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{userName}",
-                defaults: new { userName = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{memberId}",
+                defaults: new { memberId = RouteParameter.Optional }
             );
         }
     }

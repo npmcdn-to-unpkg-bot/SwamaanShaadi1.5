@@ -251,7 +251,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LookupDataController.cs" />
     <Compile Include="Controllers\MemberMatchHistoryController.cs" />
-    <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="FileUploadLogic\FileUploadLogic.cs" />
     <Compile Include="FileUploadLogic\MimeMultipart.cs" />
